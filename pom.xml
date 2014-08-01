@@ -3,10 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.etb</groupId>
-	<artifactId>easyToBuild</artifactId>
+	<artifactId>tapestry-ace</artifactId>
 	<version>1.1</version>
 	<packaging>war</packaging>
-	<name>easyToBuild Tapestry 5 Application</name>
+	<name>tapestry-ace Tapestry 5 Application</name>
 
 	<dependencies>
 		<!-- Too set up an application with a database, change the artifactId below 
@@ -109,7 +109,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>easyToBuild</finalName>
+		<finalName>tapestry-ace</finalName>
 		<plugins>
 
 			<plugin>
