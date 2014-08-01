@@ -11,7 +11,15 @@ Tapestry is a Java based web framework.
 
 ## Features
 - Fixed many bugs of ace
-- Rewrite the Tapestry5 js layers£¬make Tapestry5 more powerful and easier.
+- Rewrite the Tapestry5 js layers, make Tapestry5 more powerful and easier.
+
+## Example
+- Building...
+
+## Contact
+- Email: huangyu407@qq.com
+- QQ: 102233492
+- Blog: http://www.linkinstar.cn/
 
 ## Base Components
 ### Base
