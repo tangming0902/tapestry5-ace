@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" lang="zh-CN">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- 让IE浏览器运行最新的渲染模式 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>${title}</title>	
+		<script type="text/javascript">
+			<t:delegate to="script3" />
+		</script>
+		<t:delegate to="head" />
+		<style type="text/css">
+			@-ms-viewport { width: device-width; }
+			@-webkit-viewport { width: device-width; }
+			@-moz-viewport { width: device-width; }
+			@-ms-viewport { width: device-width; }
+			@-o-viewport { width: device-width; }
+			@viewport { width: device-width; }
+		</style>
+		<!-- 这里必须放在head末尾，ie8下需要通过js支持响应式 -->
+		<t:if test="ltIE9">
+			<script src="${assetPath}/js/html5shiv.js"></script>
+			<script src="${assetPath}/js/respond.min.js"></script>
+			<script src="${assetPath}/js/uncompressed/excanvas.js"></script>
+		</t:if>
+	</head>
+	<body>
+		<t:body />
+		<script>
+			if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+				var msViewportStyle = document.createElement("style")
+				msViewportStyle.appendChild(
+					document.createTextNode("@-ms-viewport{width:auto!important}")
+				)
+				document.getElementsByTagName("head")[0].appendChild(msViewportStyle)
+			}
+		</script>
+	</body>
+</html>

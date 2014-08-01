@@ -1,0 +1,40 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<t:if test="formgroup">
+		<t:if test="col">
+			<label class="control-label col-xs-12 col-sm-3 no-padding-right">
+				<t:outputraw value="prop:label" />
+			</label>
+			<div class="col-xs-12 col-sm-9">
+				<t:delegate to="block:content" />
+			</div>
+			<p:else>
+				<label class="control-label">
+					<t:outputraw value="prop:label" />
+				</label>
+				<div>
+					<t:delegate to="block:content" />
+				</div>
+			</p:else>
+		</t:if>
+		<p:else>
+			<t:delegate to="block:content" />
+		</p:else>
+	</t:if>
+
+	<t:block t:id="content">
+		<div class="upload">
+			<div id="${clientId}_container" class="upload-btn">
+				<a id="${clientId}_select" class="btn btn-info btn-sm">选择文件</a>
+			</div>
+			<div class="upload-btn">
+				<a id="${clientId}_start" class="btn btn-success btn-sm">开始上传</a>
+			</div>
+			<input id="${clientId}" name="${controlName}" class="hidden"
+				autocomplete="off" />
+			<input id="${clientId}_text" name="${controlName}_text" class="hidden"
+				autocomplete="off" />
+			<div id="${clientId}_uploadlist" class="upload-list"></div>
+		</div>
+	</t:block>
+</t:container>

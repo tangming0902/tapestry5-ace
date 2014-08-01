@@ -1,0 +1,28 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+	<t:fragment t:id="fragment" element="prop:element" class="prop:rowClass"
+		style="prop:style" visible="true">
+		<t:delegate to="block:ajaxResponse" />
+	</t:fragment>
+
+	<t:block t:id="more">
+		<t:etbany t:id="row" element="prop:element" class="prop:rowClass"
+			style="prop:style">
+			<t:delegate to="block:ajaxResponse" />
+		</t:etbany>
+	</t:block>
+
+	<t:block t:id="ajaxResponse">
+		<t:body />
+	</t:block>
+
+	<t:block t:id="tail">
+		<t:if test="needNulls">
+			<div id="${clientId}_nulls">
+				<t:delegate to="nulls" />
+			</div>
+		</t:if>
+		<t:etbany t:id="tailElement" element="prop:element" class="prop:tailClass"
+			style="display:none;"></t:etbany>
+	</t:block>
+</t:container>

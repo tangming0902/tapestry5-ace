@@ -1,0 +1,65 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<div t:type="zone" t:id="pagerZone" id="${clientId}" class="row"
+		style="${style};margin:0;">
+		<t:params id="${clientId}_params" params="params" />
+		<div class="col-sm-6">
+			<div class="dataTables_info">
+				<select id="${clientId}_one_pager_size" name="requestPagerSize"
+					style="width: 80px;">
+				</select>
+				<span>&nbsp;条/页
+				</span>
+				<input name="requestCurrentPage2" type="text"
+					id="${clientId}_pager_input" value="${clientCurrentPage}" style="width: 30px;" />
+				<span>&nbsp;/&nbsp;${maxPageNum}页&nbsp;总${clientTotal}记录
+				</span>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="dataTables_paginate paging_bootstrap">
+				<ul class="pagination">
+					<t:if test="goToFirstEnable">
+						<li class="first">
+							<a t:id="goToFirst" t:type="etbAny" id="${clientId}_goToFirst"
+								t:mixins="click" zone="prop:clientMoveZone" params="${clientId}_params,${clientMoveParams}">
+								«</a>
+						</li>
+						<p:else>
+							<li class="disabled first">
+								<a>«</a>
+							</li>
+						</p:else>
+					</t:if>
+					<t:loop source="startNum..endNum" index="loopPageNum">
+						<t:if test="activePage">
+							<li class="active">
+								<a>${RenderingPageNum}</a>
+							</li>
+							<p:else>
+								<li>
+									<a t:id="goToAllocate" id="${clientId}_goToAllocate_${loopPageNum}"
+										t:type="etbAny" t:mixins="click" context="[RenderingPageNum]"
+										zone="prop:clientMoveZone" params="${clientId}_params,${clientMoveParams}">
+										${RenderingPageNum}</a>
+								</li>
+							</p:else>
+						</t:if>
+					</t:loop>
+					<t:if test="goToLastEnable">
+						<li>
+							<a t:id="goToLast" t:type="etbAny" id="${clientId}_goToLast"
+								t:mixins="click" zone="prop:clientMoveZone" params="${clientId}_params,${clientMoveParams}">
+								»</a>
+						</li>
+						<p:else>
+							<li class="disabled">
+								<a>»</a>
+							</li>
+						</p:else>
+					</t:if>
+				</ul>
+			</div>
+		</div>
+	</div>
+</t:container>

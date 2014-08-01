@@ -1,0 +1,138 @@
+<t:layout.navigation
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter"
+	page="this">
+	<div class="page-header">
+		<h1>
+			首页
+			<small>
+				<i class="icon-double-angle-right"></i>
+				测试模块1
+			</small>
+		</h1>
+	</div><!-- /.page-header -->
+	<div class="row">
+		<div class="col-xs-12">
+			<t:b.errors id="myerrors" />
+			<t:etbform class="form-horizontal" t:id="form" id="validation-form" zone="#"
+				formError="NOTIFY" >
+				<t:b.textfield value="emailValue" label="姓名" />
+				<t:b.textfield value="emailValue" label="邮箱" />
+				<t:b.textfield value="byteRangeLengthValue" label="字符长度验证"
+					validate="ByteRangeLength=5-10" />
+				<t:b.textfield value="intValue" label="年龄" validate="max=200" />
+				<t:b.textfield value="idcardValue" label="身份证"
+					validate="idcard" />
+				<t:b.textfield value="doubleValue" label="价格" />
+				<t:b.textfield value="mobileValue" label="手机"
+					validate="mobile" />
+				<t:b.textfield value="telephoneValue" label="座机"
+					validate="telephone" />
+				<t:b.textfield value="phoneValue" label="联系电话"
+					validate="phone" />
+				<t:b.textfield value="zipCodeValue" label="邮政编码"
+					validate="zipcode" />
+				<t:b.checkboxes data="checkboxData" label="爱好"
+					inline="true" />
+				<t:b.radiogroup t:id="radiogroup" data="radioGroupData"
+					label="性别1" validate="required" value="radioGroupValue" zone="#" />
+				<div class="space-2"></div>
+				<t:b.select model="selectModel" label="性别2" value="selectValue"
+					validate="required" zone="#" />
+				<t:b.select model="selectModel2" label="地区" multiple="true"
+					values="selectValues" zone="#" />
+				<div class="space-2"></div>
+				<t:b.passwordfield value="value" label="密码" />
+				<div class="space-2"></div>
+				<t:b.passwordfield value="value" label="密码重复" />
+				<div class="hr hr-dotted"></div>
+				<t:b.textfield value="value" label="公司" />
+				<t:b.textarea value="value" label="描述" />
+				<t:b.editor value="value" label="富文本" />
+				<t:b.upload t:id="upload2" value="uploads" validate="required" label="附件" />
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<t:b.button t:id="commonButton" size="MINIER" color="PURPLE"
+							zone="#" t:mixins="b/tooltip" tooltipTitle="这是一个消息提示按钮">消息提示按钮
+						</t:b.button>&nbsp;
+						<t:b.button t:id="commonButton2" size="MINIER" color="PURPLE"
+							zone="#" t:mixins="b/tooltip" tooltipTitle="这是一个弹窗按钮">弹窗按钮
+						</t:b.button>&nbsp;
+
+						<t:b.button t:id="commonButton3" size="MINIER" color="ORANGE"
+							zone="#" t:mixins="b/tooltip" tooltipTitle="这是一个Dialog组件弹窗按钮">Dialog组件弹窗按钮
+						</t:b.button>&nbsp;
+
+						<t:b.submitvaluebutton size="LARGE" color="GREEN"
+							value="valueText">带值提交按钮</t:b.submitvaluebutton>
+
+						<label>
+							<input class="ace ace-switch ace-switch-4" type="checkbox"
+								name="switch-field-1" />
+							<span class="lbl"></span>
+						</label>
+					</div>
+				</div>
+				<div>
+					<t:b.widgetbox close="true" closeZone="#" reload="true" reloadZone="#">
+						<p:title>标题</p:title>
+						我是内容
+						<t:b.upload t:id="upload" value="uploads" validate="required" formgroup="false" />
+						<br />
+						<t:b.AudioPlayer url="literal:http://sk.36dj.com/up/mp3/785CEE1B2370B822FFB77B26839721CF.mp3"/>
+					</t:b.widgetbox>
+				</div>
+			</t:etbform>
+			<t:b.submitbutton color="PINK" formId="validation-form">form外提交按钮
+			</t:b.submitbutton>
+			<t:block t:id="notifyBlock">
+				<p>欢迎来到知微微营销平台</p>
+				<p>
+					主页:
+					<a>www.zwheel.cn</a>
+				</p>
+				<p>
+					对接:
+					<a>www.zwheel.cn</a>
+				</p>
+				<p>
+					培训机器人:
+					<a>www.zwheel.cn</a>
+				</p>
+				<p>
+					帮助:
+					<a>www.zwheel.cn</a>
+				</p>
+				<t:etbform zone="#">
+					<t:b.textfield value="value" formgroup="false" />
+					<t:b.radiogroup data="radioGroupData" formgroup="false" value="radioGroupValue" zone="#" />
+					<t:b.submitbutton>提交</t:b.submitbutton>
+				</t:etbform>
+			</t:block>
+
+			<t:block t:id="dialogTitleBlock">
+				<i class='icon-warning-sign red'></i>
+				我是一个弹窗
+			</t:block>
+
+			<t:block t:id="dialogButtonsBlock">
+				<t:b.button size="SMALL" color="RED">提交</t:b.button>&nbsp;
+				<t:b.dialogCloseButton size="SMALL" color="ORANGE">关闭
+				</t:b.dialogCloseButton>&nbsp;
+			</t:block>
+
+			<t:etbzone id="popZone" />
+			<t:block t:id="dialogBlock">
+				<t:b.dialog>
+					<p:title>
+						<t:delegate to="block:dialogTitleBlock" />
+					</p:title>
+					<p:buttons>
+						<t:delegate to="block:dialogButtonsBlock" />
+					</p:buttons>
+					<t:delegate to="block:notifyBlock" />
+				</t:b.dialog>
+			</t:block>
+		</div>
+	</div>
+</t:layout.navigation>

@@ -1,0 +1,47 @@
+<t:layout.backnav xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter" title="prop:title" head="prop:head">
+	<div class="main-container" id="main-container">
+		<div class="main-container-inner">
+			<a class="menu-toggler" id="menu-toggler" href="#">
+				<span class="menu-text"></span>
+			</a>
+			<div class="sidebar" id="sidebar">
+				<ul class="nav nav-list">
+					<t:loop source="menus" value="menu">
+						<li class="${menuClass}">
+							<a href="${menuUrl(menu.page)}" class="dropdown-toggle">
+								<i class="${menu.iconClass}"></i>
+								<span class="menu-text"> ${menu.text} </span>
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<t:if test="menu.children">
+								<ul class="submenu">
+									<t:loop source="menu.children" value="secondMenu">
+										<li class="${secondMenuClass}">
+											<a href="${menuUrl(secondMenu.page)}">
+												<i class="icon-double-angle-right"></i>
+												${secondMenu.text}
+											</a>
+										</li>
+									</t:loop>
+								</ul>
+							</t:if>
+						</li>
+					</t:loop>
+				</ul><!-- /.nav-list -->
+
+				<div class="sidebar-collapse" id="sidebar-collapse">
+					<i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
+						data-icon2="icon-double-angle-right"></i>
+				</div>
+			</div>
+		</div>
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+	</div>
+	<div class="main-content">
+		<t:body />
+	</div>
+</t:layout.backnav>
+

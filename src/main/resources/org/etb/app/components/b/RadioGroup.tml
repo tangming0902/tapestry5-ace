@@ -1,0 +1,51 @@
+<t:container xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter"
+	lang="zh-CN">
+	<t:if test="formgroup">
+		<t:if test="col">
+			<label class="control-label col-xs-12 col-sm-3 no-padding-right">
+				<t:outputraw value="prop:label" />
+			</label>
+			<div id="${clientId}_inner" class="radiogroup-container col-xs-12 col-sm-9">
+				<t:delegate to="block:rdBlock" />
+			</div>
+			<p:else>
+				<label class="control-label">
+					<t:outputraw value="prop:label" />
+				</label>
+				<div id="${clientId}_inner" class="radiogroup-container">
+					<t:delegate to="block:rdBlock" />
+				</div>
+			</p:else>
+		</t:if>
+		<p:else>
+			<div id="${clientId}_inner" class="radiogroup-container">
+				<t:delegate to="block:rdBlock" />
+			</div>
+		</p:else>
+	</t:if>
+
+	<t:block t:id="rdBlock">
+		<t:loop source="data" value="item" formState="NONE" index="var:index">
+			<t:if test="inline">
+				<div class="inline-b">
+					<label>
+						<t:delegate to="rdRender" />
+						<span class="lbl">&nbsp;${item.labelText}
+						</span>
+						&nbsp;
+					</label>
+				</div>
+				<p:else>
+					<div>
+						<label>
+							<t:delegate to="rdRender" />
+							<span class="lbl">&nbsp;${item.labelText}
+							</span>
+						</label>
+					</div>
+				</p:else>
+			</t:if>
+		</t:loop>
+	</t:block>
+</t:container>

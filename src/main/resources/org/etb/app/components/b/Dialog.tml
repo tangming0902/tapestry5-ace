@@ -1,0 +1,12 @@
+<div id="${clientId}" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+	xmlns:p="tapestry:parameter" class="hide">
+	<div id="${clientId}_content">
+		<t:body />
+	</div>
+	<div id="${clientId}_title">
+		<t:delegate to="title" />
+	</div>
+	<div id="${clientId}_buttons">
+		<t:delegate to="buttons" />
+	</div>
+</div>

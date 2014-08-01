@@ -1,0 +1,122 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<t:etbZone t:id="outZone" id="${clientId}_out_zone">
+		<t:etbZone t:id="dataZone" id="${clientId}_zone">
+			<t:trigger t:id="renderDataEvent" event="renderDataEvent" />
+			<div class="table-responsive">
+				<table class="${tableClassName}" id="${clientId}">
+					<t:if test="showTableHead">
+						<thead>
+							<tr>
+								<t:if test="enableCheckbox">
+									<th width="14">
+										<input class="checkall" type="checkbox" style="margin:0;"
+											autocomplete="off" />
+									</th>
+								</t:if>
+								<t:if test="enableNumber">
+									<th width="50" style="text-align:center;">
+										序号
+									</th>
+								</t:if>
+								<t:loop source="gridColumns" value="gridColumn"
+									formState="none">
+									<th style="${headStyle}">
+										<t:if test="gridColumn.sortable">
+											<t:trigger t:id="orderSortTri" event="orderSortTrigger" />
+											<a t:id="sort" t:type="etbAny" t:mixins="click"
+												t:context="[gridColumn.field]" zone="${clientId}_out_zone"
+												params="prop:paramsId">
+												${gridColumn.display}
+												<t:if test="showChangeSortIcon">
+													<img src="${orderByImg}" class="t-sort-icon" title="[可排序]" />
+													<p:else>
+														<img src="${sortableImg}" class="t-sort-icon" title="[可排序]" />
+													</p:else>
+												</t:if>
+											</a>
+											<p:else>
+												${gridColumn.display}
+											</p:else>
+										</t:if>
+										<t:trigger t:id="rednerHeadRight" event="rednerHeadRight" />
+										<t:delegate to="headRightBlock" />
+									</th>
+								</t:loop>
+							</tr>
+						</thead>
+					</t:if>
+					<tbody>
+						<t:loop t:id="dataLoop" empty="block:emptyData" source="data"
+							formState="none" value="value">
+							<t:if test="rowBlock">
+								<t:delegate to="rowBlock" />
+								<p:else>
+									<t:if test="hasRowZone">
+										<tr t:type="etbAny" t:id="rowclick" t:mixins="click" zone="${rowZone}"
+											context="AlterRowContext" style="cursor:pointer;">
+											<t:delegate to="block:renderrow" />
+										</tr>
+
+										<p:else>
+											<tr>
+												<t:delegate to="block:renderrow" />
+											</tr>
+										</p:else>
+									</t:if>
+
+									<t:block t:id="renderrow">
+										<t:trigger t:id="renderRowEvent" event="renderRowEvent" />
+										<t:if test="enableCheckbox">
+											<td>
+												<input rowid="${rowId}" type="checkbox" style="margin:0;"
+													autocomplete="off" />
+											</td>
+										</t:if>
+										<t:if test="enableNumber">
+											<td style="text-align:center;">${index}</td>
+										</t:if>
+										<t:loop source="gridColumns" value="gridColumn"
+											formState="none">
+											<td style="${columnStyle}">
+												<t:trigger t:id="renderCell" event="prepareRenderValue" />
+												<t:delegate to="cellRenderCommand" />
+											</td>
+										</t:loop>
+									</t:block>
+
+									<t:if test="detailBlock">
+										<t:delegate to="detailBlock" />
+									</t:if>
+								</p:else>
+							</t:if>
+						</t:loop>
+						<t:block t:id="emptyData">
+							<tr>
+								<td colspan="${columnCount}">
+									<t:if test="hasItem">
+										<t:if test="emptyBlock">
+											<t:delegate to="emptyBlock" />
+											<p:else>
+												该页数据已被其他用户删除,请
+												<a href="javascript:window.location.reload();">刷新</a>
+												.
+											</p:else>
+										</t:if>
+										<p:else>
+											没有可显示的记录.
+										</p:else>
+									</t:if>
+								</td>
+							</tr>
+						</t:block>
+					</tbody>
+				</table>
+			</div>
+		</t:etbZone>
+		<div class="grid_pager">
+			<t:b.pager t:id="pager" limit="curPageSize" id="${clientId}_pager"
+				total="total" zone="${clientId}_zone" params="prop:paramsId" />
+		</div>
+	</t:etbZone>
+</div>

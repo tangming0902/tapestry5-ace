@@ -1,0 +1,126 @@
+.grid_pager {
+	background-color: #EFF3F8;
+	border-bottom: 1px solid #DDDDDD;
+	border-top: 1px solid #DDDDDD;
+	padding-bottom: 12px;
+	padding-top: 12px;
+}
+
+.upload-btn {
+	width: 52px;
+	display: inline;
+	margin-right: 5px;
+}
+
+.upload-list {
+	border: 1px dashed #AAAAAA;
+	border-radius: 4px;
+	height: auto;
+	min-height: 20px;
+	position: relative;
+	text-align: center;
+	margin: 5px 0;
+}
+
+.upload-list .uploaditem {
+	margin: 5px 2px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.upload-list .uploaditem:last-child {
+	border-bottom: 0;
+}
+
+.uploaditem {
+	text-align: left;
+}
+
+.uploaditem [class*="icon-"] {
+	border: 2px solid #FFFFFF;
+	bottom: 0;
+	color: #FFFFFF;
+	display: inline-block;
+	font-family: FontAwesome;
+	font-size: 13px;
+	left: 0;
+	line-height: 24px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	transition: all 0.1s ease 0s;
+	width: 26px;
+	line-height: 24px;
+	margin-left: 2px;
+	margin-right: 4px;
+	position: relative;
+}
+
+.uploaditem .icon-file {
+	background-color: #EFAD62;
+}
+
+.uploaditem .icon-music {
+	background-color: #8B7AC9;
+}
+
+.uploaditem .icon-picture {
+	background-color: #BD7A9D;
+}
+
+.uploaditem .icon-film {
+	background-color: #87B87F;
+}
+
+.active {
+	color: #333;
+}
+
+.jp-audio .jp-progress {
+	height: 18px;
+	margin-bottom: 4px;
+	overflow: hidden;
+	margin: 0;
+}
+
+.jp-audio .jp-progress .jp-seek-bar {
+	width: 100%;
+	cursor: pointer;
+	height: 100%;
+	overflow: hidden;
+	background-color: #999;
+}
+
+.jp-audio .jp-progress .jp-seek-bar .jp-play-bar {
+	height: 100%;
+	overflow: hidden;
+	background-color: #8F3192;
+}
+
+.jp-audio .jp-table {
+	width: 100%;
+}
+
+.jp-audio .jp-table td {
+	padding: 2px;
+	border: 0;
+}
+
+.jp-audio .jp-table td.jp-operation {
+	width: 38px;
+}
+
+.jp-audio .jp-table td.jp-time {
+	width: 85px;
+}
+
+.jp-audio .jp-table td.jp-operation .jp-pause {
+	display: none;
+}
+
+.jp-audio td.jp-operation a:hover {
+	text-decoration: none;
+}
+
+.datePicker {
+    z-index:9999;
+}

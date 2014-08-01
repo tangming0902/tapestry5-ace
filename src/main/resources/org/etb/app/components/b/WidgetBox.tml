@@ -1,0 +1,36 @@
+<t:container xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter"
+	lang="zh-CN">
+	<div id="${clientId}" class="widget-box">
+		<div class="widget-header ${color.value}">
+			<h4>
+				<t:delegate to="title" />
+			</h4>
+
+			<span class="widget-toolbar">
+				<t:delegate to="toolbar" />
+				<t:if test="reload">
+					<a href="#" data-action="reload">
+						<i class="icon-refresh"></i>
+					</a>
+				</t:if>
+				<t:if test="collapse">
+					<a href="#" data-action="collapse">
+						<i class="icon-chevron-up"></i>
+					</a>
+				</t:if>
+				<t:if test="close">
+					<a href="#" data-action="close">
+						<i class="icon-remove"></i>
+					</a>
+				</t:if>
+			</span>
+		</div>
+
+		<div class="widget-body">
+			<div class="widget-main">
+				<t:body />
+			</div>
+		</div>
+	</div>
+</t:container>
