@@ -6,7 +6,7 @@
 
 ## Background
 [Bootstrap](http://twitter.github.com/bootstrap/) is a grid based CSS framework started by Twitter.
-[Ace](https://wrapbootstrap.com/theme/ace-responsive-admin-template-WB0B30DGR) responsive admin template.
+[Ace](https://wrapbootstrap.com/theme/ace-responsive-admin-template-WB0B30DGR) is a responsive admin template.
 Tapestry is a Java based web framework.
 
 ## Features
